@@ -1,0 +1,603 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azon+Nwetmu - Premium Cake Shop</title>
+    <style>
+        :root {
+            --primary: #ff6b81;
+            --secondary: #ff4757;
+            --light: #fff5f6;
+            --dark: #2f3542;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        body {
+            background-color: var(--light);
+            color: var(--dark);
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            padding: 1rem;
+            background-color: white;
+        }
+        
+        nav a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+        
+        nav a:hover {
+            color: var(--primary);
+        }
+        
+        .hero {
+            height: 60vh;
+            background: url('https://images.unsplash.com/photo-1578985545062-69928b1d9587') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            text-align: center;
+            position: relative;
+        }
+        
+        .hero::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.5);
+        }
+        
+        .hero-content {
+            z-index: 1;
+            max-width: 800px;
+            padding: 2rem;
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+        }
+        
+        .btn {
+            display: inline-block;
+            background-color: var(--primary);
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: all 0.3s;
+            border: none;
+            cursor: pointer;
+        }
+        
+        .btn:hover {
+            background-color: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 2rem auto;
+            padding: 0 1rem;
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 2rem;
+            color: var(--primary);
+        }
+        
+        .cakes-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 2rem;
+        }
+        
+        .cake-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: all 0.3s;
+        }
+        
+        .cake-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+        }
+        
+        .cake-img {
+            height: 200px;
+            width: 100%;
+            object-fit: cover;
+        }
+        
+        .cake-info {
+            padding: 1.5rem;
+        }
+        
+        .cake-title {
+            font-size: 1.2rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .cake-price {
+            color: var(--primary);
+            font-weight: 700;
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .order-form {
+            background-color: white;
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            max-width: 600px;
+            margin: 3rem auto;
+        }
+        
+        .form-group {
+            margin-bottom: 1.5rem;
+        }
+        
+        label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        input, select, textarea {
+            width: 100%;
+            padding: 0.8rem;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 1rem;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 3rem;
+        }
+        
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin: 1rem 0;
+        }
+        
+        .social-links a {
+            color: white;
+            font-size: 1.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            nav {
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="logo">Azon+Nwetmu</div>
+        <p>Premium Cakes for Every Occasion</p>
+    </header>
+    
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#cakes">Our Cakes</a>
+        <a href="#about">About Us</a>
+        <a href="#order">Order Now</a>
+        <a href="#contact">Contact</a>
+    </nav>
+    
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Delicious Cakes Made With Love</h1>
+            <p>Celebrate your special moments with our handcrafted, premium quality cakes</p>
+            <a href="#order" class="btn">Order Now</a>
+        </div>
+    </section>
+    
+    <div class="container">
+        <section id="cakes">
+            <h2 class="section-title">Our Cake Collection</h2>
+            <div class="cakes-grid">
+                <!-- Cake 1 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1552689486-f6773047d19f" alt="Chocolate Fudge Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Chocolate Fudge Cake</h3>
+                        <p class="cake-price">$24.99</p>
+                        <p>Rich chocolate cake with fudge filling</p>
+                        <button class="btn" onclick="addToCart('Chocolate Fudge Cake', 24.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 2 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d" alt="Red Velvet Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Red Velvet Cake</h3>
+                        <p class="cake-price">$26.99</p>
+                        <p>Classic red velvet with cream cheese frosting</p>
+                        <button class="btn" onclick="addToCart('Red Velvet Cake', 26.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 3 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1588195538326-c5b1e9f80a1b" alt="Vanilla Dream Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Vanilla Dream Cake</h3>
+                        <p class="cake-price">$22.99</p>
+                        <p>Light vanilla sponge with buttercream</p>
+                        <button class="btn" onclick="addToCart('Vanilla Dream Cake', 22.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 4 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1562440499-64c9a111f713" alt="Strawberry Shortcake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Strawberry Shortcake</h3>
+                        <p class="cake-price">$28.99</p>
+                        <p>Layers of sponge cake with fresh strawberries</p>
+                        <button class="btn" onclick="addToCart('Strawberry Shortcake', 28.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 5 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1578985545062-69928b1d9587" alt="Black Forest Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Black Forest Cake</h3>
+                        <p class="cake-price">$29.99</p>
+                        <p>Chocolate cake with cherries and whipped cream</p>
+                        <button class="btn" onclick="addToCart('Black Forest Cake', 29.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 6 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1542826438-bd32f43d626f" alt="Lemon Drizzle Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Lemon Drizzle Cake</h3>
+                        <p class="cake-price">$21.99</p>
+                        <p>Tangy lemon cake with sweet drizzle</p>
+                        <button class="btn" onclick="addToCart('Lemon Drizzle Cake', 21.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 7 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1606890737304-57a1ca8a5b62" alt="Carrot Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Carrot Cake</h3>
+                        <p class="cake-price">$25.99</p>
+                        <p>Moist carrot cake with cream cheese frosting</p>
+                        <button class="btn" onclick="addToCart('Carrot Cake', 25.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 8 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1603532648955-039310d8347e" alt="Tiramisu Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Tiramisu Cake</h3>
+                        <p class="cake-price">$27.99</p>
+                        <p>Italian coffee-flavored dessert cake</p>
+                        <button class="btn" onclick="addToCart('Tiramisu Cake', 27.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 9 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1627834377411-8da5f4f09de8" alt="Cheesecake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">New York Cheesecake</h3>
+                        <p class="cake-price">$23.99</p>
+                        <p>Creamy classic cheesecake with berry topping</p>
+                        <button class="btn" onclick="addToCart('New York Cheesecake', 23.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 10 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1621303837174-89787a7d4729" alt="Rainbow Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Rainbow Cake</h3>
+                        <p class="cake-price">$30.99</p>
+                        <p>Colorful layered cake with vanilla frosting</p>
+                        <button class="btn" onclick="addToCart('Rainbow Cake', 30.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 11 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1611293388250-580b08c4a145" alt="Coffee Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Mocha Coffee Cake</h3>
+                        <p class="cake-price">$24.99</p>
+                        <p>Rich coffee flavored cake with chocolate</p>
+                        <button class="btn" onclick="addToCart('Mocha Coffee Cake', 24.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 12 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1621303837031-0d0092ccfd7c" alt="Pineapple Upside Down Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Pineapple Upside Down</h3>
+                        <p class="cake-price">$25.99</p>
+                        <p>Classic pineapple and cherry cake</p>
+                        <button class="btn" onclick="addToCart('Pineapple Upside Down', 25.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 13 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1611293388421-2d0c8deda1c7" alt="Matcha Green Tea Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Matcha Green Tea Cake</h3>
+                        <p class="cake-price">$27.99</p>
+                        <p>Japanese inspired green tea flavored cake</p>
+                        <button class="btn" onclick="addToCart('Matcha Green Tea Cake', 27.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 14 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1541783245831-57d6fb0926d3" alt="Opera Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Opera Cake</h3>
+                        <p class="cake-price">$31.99</p>
+                        <p>French layered almond coffee cake</p>
+                        <button class="btn" onclick="addToCart('Opera Cake', 31.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 15 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d" alt="Salted Caramel Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Salted Caramel Cake</h3>
+                        <p class="cake-price">$28.99</p>
+                        <p>Buttery cake with salted caramel frosting</p>
+                        <button class="btn" onclick="addToCart('Salted Caramel Cake', 28.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 16 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d" alt="Hazelnut Praline Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Hazelnut Praline Cake</h3>
+                        <p class="cake-price">$29.99</p>
+                        <p>Nutty cake with praline crunch</p>
+                        <button class="btn" onclick="addToCart('Hazelnut Praline Cake', 29.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 17 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d" alt="Coconut Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Tropical Coconut Cake</h3>
+                        <p class="cake-price">$26.99</p>
+                        <p>Coconut flavored cake with cream</p>
+                        <button class="btn" onclick="addToCart('Tropical Coconut Cake', 26.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 18 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d" alt="Raspberry Delight" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Raspberry Delight</h3>
+                        <p class="cake-price">$27.99</p>
+                        <p>Vanilla cake with raspberry filling</p>
+                        <button class="btn" onclick="addToCart('Raspberry Delight', 27.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 19 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d" alt="Chocolate Mousse Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Chocolate Mousse Cake</h3>
+                        <p class="cake-price">$28.99</p>
+                        <p>Light chocolate mousse layered cake</p>
+                        <button class="btn" onclick="addToCart('Chocolate Mousse Cake', 28.99)">Add to Cart</button>
+                    </div>
+                </div>
+                
+                <!-- Cake 20 -->
+                <div class="cake-card">
+                    <img src="https://images.unsplash.com/photo-1571115177098-24ec42ed204d" alt="Pistachio Cake" class="cake-img">
+                    <div class="cake-info">
+                        <h3 class="cake-title">Pistachio Cake</h3>
+                        <p class="cake-price">$29.99</p>
+                        <p>Middle Eastern inspired pistachio cake</p>
+                        <button class="btn" onclick="addToCart('Pistachio Cake', 29.99)">Add to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="about">
+            <h2 class="section-title">About Azon+Nwetmu</h2>
+            <div style="background-color: white; padding: 2rem; border-radius: 10px;">
+                <p>Azon+Nwetmu was founded in 2015 with a passion for creating beautiful, delicious cakes that make every occasion special. Our master bakers use only the finest ingredients to craft cakes that not only look stunning but taste incredible.</p>
+                <p style="margin-top: 1rem;">From classic flavors to innovative creations, each cake is made with attention to detail and a commitment to quality that our customers have come to love.</p>
+            </div>
+        </section>
+        
+        <section id="order">
+            <h2 class="section-title">Place Your Order</h2>
+            <div class="order-form">
+                <h3 style="text-align: center; margin-bottom: 1.5rem; color: var(--primary);">Order Form</h3>
+                <form id="cakeOrderForm">
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="phone">Phone Number</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="cake">Select Cake</label>
+                        <select id="cake" name="cake" required>
+                            <option value="">-- Select a Cake --</option>
+                            <option value="Chocolate Fudge Cake">Chocolate Fudge Cake - $24.99</option>
+                            <option value="Red Velvet Cake">Red Velvet Cake - $26.99</option>
+                            <option value="Vanilla Dream Cake">Vanilla Dream Cake - $22.99</option>
+                            <option value="Strawberry Shortcake">Strawberry Shortcake - $28.99</option>
+                            <option value="Black Forest Cake">Black Forest Cake - $29.99</option>
+                            <option value="Lemon Drizzle Cake">Lemon Drizzle Cake - $21.99</option>
+                            <option value="Carrot Cake">Carrot Cake - $25.99</option>
+                            <option value="Tiramisu Cake">Tiramisu Cake - $27.99</option>
+                            <option value="New York Cheesecake">New York Cheesecake - $23.99</option>
+                            <option value="Rainbow Cake">Rainbow Cake - $30.99</option>
+                            <option value="Mocha Coffee Cake">Mocha Coffee Cake - $24.99</option>
+                            <option value="Pineapple Upside Down">Pineapple Upside Down - $25.99</option>
+                            <option value="Matcha Green Tea Cake">Matcha Green Tea Cake - $27.99</option>
+                            <option value="Opera Cake">Opera Cake - $31.99</option>
+                            <option value="Salted Caramel Cake">Salted Caramel Cake - $28.99</option>
+                            <option value="Hazelnut Praline Cake">Hazelnut Praline Cake - $29.99</option>
+                            <option value="Tropical Coconut Cake">Tropical Coconut Cake - $26.99</option>
+                            <option value="Raspberry Delight">Raspberry Delight - $27.99</option>
+                            <option value="Chocolate Mousse Cake">Chocolate Mousse Cake - $28.99</option>
+                            <option value="Pistachio Cake">Pistachio Cake - $29.99</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="quantity">Quantity</label>
+                        <input type="number" id="quantity" name="quantity" min="1" value="1" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="date">Delivery Date</label>
+                        <input type="date" id="date" name="date" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Special Instructions</label>
+                        <textarea id="message" name="message" rows="4"></textarea>
+                    </div>
+                    
+                    <button type="submit" class="btn" style="width: 100%;">Place Order</button>
+                </form>
+            </div>
+        </section>
+        
+        <section id="contact">
+            <h2 class="section-title">Contact Us</h2>
+            <div style="background-color: white; padding: 2rem; border-radius: 10px; text-align: center;">
+                <p><i class="fas fa-map-marker-alt"></i> 123 Cake Street, Yangon, Myanmar</p>
+                <p style="margin: 1rem 0;"><i class="fas fa-phone"></i> +95 9 123 456 789</p>
+                <p><i class="fas fa-envelope"></i> hello@azonnwetmu.com</p>
+                
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+        </section>
+    </div>
+    
+    <footer>
+        <p>&copy; 2023 Azon+Nwetmu Cake Shop. All Rights Reserved.</p>
+        <p>Made with <i class="fas fa-heart" style="color: var(--primary);"></i> in Yangon</p>
+    </footer>
+    
+    <script>
+        // Simple cart functionality
+        let cart = [];
+        
+        function addToCart(name, price) {
+            cart.push({name, price});
+            alert(`${name} added to cart!`);
+            updateCartCount();
+        }
+        
+        function updateCartCount() {
+            const countElement = document.getElementById('cartCount');
+            if(countElement) {
+                countElement.textContent = cart.length;
+            }
+        }
+        
+        // Form submission
+        document.getElementById('cakeOrderForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const name = document.getElementById('name').value;
+            const cake = document.getElementById('cake').value;
+            
+            alert(`Thank you, ${name}! Your order for ${cake} has been received. We'll contact you shortly.`);
+            this.reset();
+        });
+        
+        // Set minimum date to today
+        const today = new Date().toISOString().split('T')[0];
+        document.getElementById('date').min = today;
+    </script>
+</body>
+</html>
